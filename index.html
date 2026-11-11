@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Área do Aluno - UniSantos</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <div class="app-container">
+
+        <aside class="sidebar">
+
+            <div class="sidebar-settings">
+                <i class="bi bi-gear-fill"></i>
+            </div>
+
+            <div class="profile">
+
+                <div class="profile-image">
+                    <i class="bi bi-person-circle"></i>
+                </div>
+
+                <h5>Isabela Santana Martins</h5>
+                <p>isabelasantinamartins@unisantos.br</p>
+
+            </div>
+
+            <hr class="sidebar-divider">
+
+            <nav class="sidebar-menu">
+
+                <a href="#" class="sidebar-link">
+                    Documentos Institucionais e dos Cursos
+                </a>
+
+                <a href="#" class="sidebar-link">
+                    Biblioteca
+                </a>
+
+                <a href="#" class="sidebar-link">
+                    Editais
+                </a>
+
+                <a href="#" class="sidebar-link">
+                    Guia Acadêmico
+                </a>
+
+                <a href="#" class="sidebar-link">
+                    Serviços Acadêmicos
+                </a>
+
+                <a href="#" class="sidebar-link">
+                    Visualizar Boletos
+                </a>
+
+                <a href="#" class="sidebar-link">
+                    Office 365
+                </a>
+
+            </nav>
+
+            <div class="sidebar-logout">
+                <a href="#" aria-label="Sair">
+                    <i class="bi bi-box-arrow-left"></i>
+                </a>
+            </div>
+
+        </aside>
+
+        <main class="main-content">
+
+            <div id="home-view" class="view-section">
+
+                <header class="page-header">
+
+                    <div class="university-logo">
+                        <img
+                            src="assets/logo-unisantos.png"
+                            alt="Logo da Universidade Católica de Santos"
+                        >
+                    </div>
+
+                </header>
+
+                <div class="quick-access-container">
+
+                    <section class="quick-access">
+
+                        <div class="access-card">
+                            <i class="bi bi-laptop"></i>
+                            <h5>Moodle</h5>
+                        </div>
+
+                        <div class="access-card">
+                            <i class="bi bi-journal-text"></i>
+                            <h5>Notas do semestre</h5>
+                        </div>
+
+                        <div class="access-card">
+                            <i class="bi bi-calendar4-week"></i>
+                            <h5>Consultar frequência</h5>
+                        </div>
+
+                        <div class="access-card">
+                            <i class="bi bi-award"></i>
+                            <h5>PCG</h5>
+                        </div>
+
+                        <div class="access-card">
+                            <i class="bi bi-file-earmark-text"></i>
+                            <h5>ACP</h5>
+                        </div>
+
+                        <div
+                            class="access-card"
+                            id="agenda-card"
+                            role="button"
+                            tabindex="0"
+                            aria-label="Abrir Agenda Acadêmica"
+                        >
+                            <i class="bi bi-book"></i>
+                            <h5>Agenda acadêmica</h5>
+                        </div>
+
+                        <div class="access-card">
+                            <i class="bi bi-alarm"></i>
+                            <h5>Consultar horários</h5>
+                        </div>
+
+                        <div class="access-card">
+                            <i class="bi bi-journal-bookmark-fill"></i>
+                            <h5>Plano de ensino</h5>
+                        </div>
+
+                        <div class="access-card">
+                            <i class="bi bi-chat-dots"></i>
+                            <h5>Mensagens</h5>
+                        </div>
+
+                    </section>
+
+                </div>
+
+                <section class="calendar-container">
+
+                    <div class="calendar-header">
+
+                        <h2>Calendário</h2>
+
+                        <div class="calendar-navigation">
+
+                            <button id="prev-month" aria-label="Mês anterior">
+                                <i class="bi bi-chevron-left"></i>
+                            </button>
+
+                            <h3 id="month-year"></h3>
+
+                            <button id="next-month" aria-label="Próximo mês">
+                                <i class="bi bi-chevron-right"></i>
+                            </button>
+
+                        </div>
+
+                        <i class="bi bi-calendar3 calendar-icon"></i>
+
+                    </div>
+
+                    <div class="calendar-weekdays">
+                        <span>DOM</span>
+                        <span>SEG</span>
+                        <span>TER</span>
+                        <span>QUA</span>
+                        <span>QUI</span>
+                        <span>SEX</span>
+                        <span>SÁB</span>
+                    </div>
+
+                    <div class="calendar-days" id="calendar-days"></div>
+
+                </section>
+
+            </div>
+
+            <!-- =========================================================================== -->
+
+            <div id="agenda-view" class="view-section" hidden>
+
+                <header class="page-header">
+
+                    <div class="university-logo">
+                        <img
+                            src="assets/logo-unisantos.png"
+                            alt="Logo da Universidade Católica de Santos"
+                        >
+                    </div>
+
+                </header>
+
+                <section class="agenda-container">
+
+                    <div class="agenda-heading">
+
+                        <h1>Agenda Acadêmica</h1>
+
+                        <p>
+                            Acompanhe suas próximas atividades e entregas.
+                        </p>
+
+                    </div>
+
+                    <div class="agenda-summary">
+
+                        <div class="summary-card">
+                            <span>Pendentes</span>
+                            <strong>05</strong>
+                        </div>
+
+                        <div class="summary-card">
+                            <span>Próximas provas</span>
+                            <strong>02</strong>
+                        </div>
+
+                        <div class="summary-card">
+                            <span>Essa semana</span>
+                            <strong>03</strong>
+                        </div>
+
+                    </div>
+
+                    <div class="activities-section">
+
+                        <h2>Minhas atividades</h2>
+
+                        <div class="activity-filters">
+
+                            <button class="filter-button active" data-filter="todas">
+                                Todas
+                            </button>
+
+                            <button class="filter-button" data-filter="prova">
+                                Provas
+                            </button>
+
+                            <button class="filter-button" data-filter="trabalho">
+                                Trabalhos
+                            </button>
+
+                            <button class="filter-button" data-filter="atividade">
+                                Atividades
+                            </button>
+
+                        </div>
+
+                        <div class="date-filters">
+
+                            <button class="date-button active" data-date="proximas">
+                                Próximas
+                            </button>
+
+                            <button class="date-button" data-date="todas">
+                                Todas as datas
+                            </button>
+
+                        </div>
+
+                        <div class="activities-list" id="activities-list">
+
+                            <article
+                                class="activity-card"
+                                data-category="prova"
+                                data-date="2026-10-28"
+                            >
+
+                                <div class="activity-date">
+                                    <i class="bi bi-file-earmark-text"></i>
+                                    <strong>28 OUT</strong>
+                                </div>
+
+                                <div class="activity-information">
+                                    <h3>Prova de Estrutura de Dados</h3>
+                                    <p>Estrutura de Dados</p>
+                                </div>
+
+                                <span class="activity-status">Pendente</span>
+
+                                <span class="activity-type">Prova</span>
+
+                                <i class="bi bi-chevron-right activity-arrow"></i>
+
+                            </article>
+
+                            <article
+                                class="activity-card"
+                                data-category="trabalho"
+                                data-date="2026-10-30"
+                            >
+
+                                <div class="activity-date">
+                                    <i class="bi bi-journal-text"></i>
+                                    <strong>30 OUT</strong>
+                                </div>
+
+                                <div class="activity-information">
+                                    <h3>Entrega do projeto de POO</h3>
+                                    <p>Programação Orientada a Objetos</p>
+                                </div>
+
+                                <span class="activity-status">Pendente</span>
+
+                                <span class="activity-type">Trabalho</span>
+
+                                <i class="bi bi-chevron-right activity-arrow"></i>
+
+                            </article>
+
+                            <article
+                                class="activity-card"
+                                data-category="atividade"
+                                data-date="2026-10-31"
+                            >
+
+                                <div class="activity-date">
+                                    <i class="bi bi-book-half"></i>
+                                    <strong>31 OUT</strong>
+                                </div>
+
+                                <div class="activity-information">
+                                    <h3>Lista de Exercícios</h3>
+                                    <p>Matemática Discreta</p>
+                                </div>
+
+                                <span class="activity-status">Pendente</span>
+
+                                <span class="activity-type">Atividade</span>
+
+                                <i class="bi bi-chevron-right activity-arrow"></i>
+
+                            </article>
+
+                        </div>
+
+                        <p id="empty-message" class="empty-message" hidden>
+                            Nenhuma atividade encontrada.
+                        </p>
+
+                    </div>
+
+                    <button type="button" class="agenda-back" id="back-home">
+                        <i class="bi bi-chevron-left"></i>
+                        <span>Voltar</span>
+                    </button>
+
+                </section>
+
+            </div>
+
+        </main>
+
+    </div>
+
+    <div vw class="enabled">
+
+        <div vw-access-button class="active"></div>
+
+        <div vw-plugin-wrapper>
+            <div class="vw-plugin-top-wrapper"></div>
+        </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+
+    <script>
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
+
+    <script src="js/script.js"></script>
+
+</body>
+</html>
